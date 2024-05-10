@@ -1,0 +1,476 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>
+        NMCP codes
+    </title>
+</head>
+<body>
+    <h3>
+        Exp :- 2
+    </h3>
+    <p>
+        #include <stdio.h>
+    <br>
+            #include <conio.h>
+    <br>
+            #include <math.h>
+    <br>
+            
+            void main() {
+    <br>
+                int i, j, n, maxit = 5;
+    <br>
+                double a[10], b[10], c[10], p[10];
+    <br>
+            
+                printf("\nEnter the order of polynomial equation n = ");
+    <br>
+                scanf("%d", &n);
+    <br>
+            
+                for(i = 0; i <= n; i++) {
+    <br>
+                    printf("Enter coefficient a[%d] = ", i);
+    <br>
+                    scanf("%lf", &a[i]);
+    <br>
+                }
+    <br>
+            
+                printf("\nEnter the initial guess p[0] = ");
+    <br>
+                scanf("%lf", &p[0]);
+    <br>
+            
+                b[0] = a[0];
+    <br>
+                c[0] = b[0];
+    <br>
+            
+                j = 0;
+    <br>
+                do {
+    <br>
+                    for(i = 1; i <= n; i++) {
+    <br>
+                        b[i] = a[i] + p[j] * b[i - 1];
+    <br>
+                        c[i] = b[i] + p[j] * c[i - 1];
+    <br>
+                    }
+    <br>
+            
+                    p[j + 1] = p[j] - (b[n] / c[n-1]); // Corrected calculation of p[j+1]
+    <br>
+            
+                    printf("\nAt iteration %d, p is %.6lf", j, p[j]); // Corrected printf statement
+    <br>
+            
+                    j++;
+    <br>
+                } while(j < maxit);
+    <br>
+            
+                getch();
+    <br>
+            }
+    </p>
+    <h3>
+        Exp no :- 3
+    </h3>
+    <p>
+
+    </p>
+    <h3>
+        Exp no :- 4
+    </h3>
+    <p>
+        #include<stdio.h>
+    <br>
+    <br>
+            #include<math.h>
+    <br>
+            
+            void main() {
+    <br>
+            
+            int i, n;
+    <br>
+            float x[20],y[20],da,db,ds,a,b,sum0,sum1,sum2,sum3;
+    <br>
+            printf("Enter the value of given points n="); scanf("%d",&n);
+    <br>
+            
+            for ( i = 1; i <= n ;i++)
+    <br>
+            
+            { printf("\n Enter the values of x [\%d]=",i ); 
+    <br>
+            scanf("\%f",&x[i] );
+    <br>
+            }
+    <br>
+            for( i = 1; i<=n;i++)
+    <br>
+            
+            {
+    <br>
+            
+            printf("\n Enter the values of y [\%d]=",i);
+    <br>
+            
+            scanf("%f",&y[i]);
+    <br>
+            
+            }
+    <br>
+            for( i = 1; i <= n ;i++)    <br>
+
+            {
+                <br>
+                sum0 = sum0 + x[i];
+                <br>
+                sum1 = sum1 + y[i];
+                <br>
+                sum2 =sum2+(x[i]*y[i]);
+                <br>
+                sum3 =sum3+(x[i]*x[i]); 
+                <br>
+                
+            }
+            <br>
+            ds=sum0*sum0-sum3*n;
+            <br>
+            da=sum1*sum0-sum2*n;
+            <br>
+            db=sum0*sum2-sum3*sum1;
+            <br>
+            printf("\n ds=%f",ds);
+            <br>
+            printf("\n da=%f",da);
+            <br>
+            printf("\n db=%f",db);
+            {
+                <br>
+    a=da/ds;
+    <br>
+                b=db/ds;
+                <br>
+                printf("\n a=%f",a);
+                <br>
+                
+                printf("\n b=%f",b);
+                <br>
+                printf("\n The equation of straight line is y=%fx +%f" ,a,b);
+                <br>
+            }
+            }
+    </p>
+    <h3>
+        Exp 5
+    </h3>
+    <p>
+
+    </p>
+    <h3>
+        exp 6
+    </h3>
+    <p>
+
+    </p>
+    <h3>
+        exp 7
+    </h3>
+    <p>
+        #program for RK mathod
+def dydx(x, y):    <br>
+
+<br>
+return (x + y)
+<br>
+
+# Obtain initial values
+<br>
+x0 = float(input("Enter the initial value of x (t''): "))
+<br>
+y0 = float(input("Enter the initial value of y: "))
+<br>
+x_target = float(input("Enter the value of x for which y is to be calculated (t''): "))
+<br>
+h = float(input("Enter the value of step size h (t''): "))
+<br>
+
+# Count number of iterations using step size h
+<br>
+n = int((x_target - x0) / h)
+<br>
+
+# Iterate for number of steps
+<br>
+for i in range(1, n + 1):
+<br>
+# Apply Runge Kutta Formulas to find next value of y
+<br>
+k1 = h * dydx(x0, y0)
+<br>
+k2 = h * dydx(x0 + 0.5 * h, y0 + 0.5 * k1)
+<br>
+k3 = h * dydx(x0 + 0.5 * h, y0 + 0.5 * k2)
+<br>
+k4 = h * dydx(x0 + h, y0 + k3)
+<br>
+k = (1/6) * (k1 + 2 * k2 + 2 * k3 + k4)
+<br>
+
+# Update next value of y and x
+<br>
+y1 = y0 + k
+<br>
+x1 = x0 + h
+<br>
+x0 = x1
+<br>
+y0 = y1
+
+# Print the final value of y
+<br>
+print("The value of y at x = {:.2f} is {:.6f}".format(x_target, y0))
+    </p>
+    <h3>
+        exp 8
+    </h3>
+    <p>
+        def f(x):
+        <br>
+        return 1 / (1 + x**2)
+
+        <br>
+        def simpson13(x0, xn, n):
+        <br>
+# Calculating step size h = (xn - x0) / n
+<br>
+h = (xn - x0) / n
+    # Finding sum
+    <br>
+    integration = f(x0) + f(xn)
+
+    <br>
+    for i in range(1, n):
+    <br>
+        k = x0 + i * h
+        <br>
+        if i % 2 == 0:
+        <br>
+        integration += 2 * f(k)
+        <br>
+        else:
+        <br>
+        integration += 4 * f(k)
+        <br>
+
+    # Finding final integration value
+    integration *= h / 3
+    <br>
+    return integration
+    <br>
+
+lower_limit = float
+<br>
+
+(input("Enter lower limit of integration: "))
+<br>
+upper_limit = float(input("Enter upper limit of integration: "))
+<br>
+sub_interval = int(input("Enter number of sub intervals: "))
+<br>
+
+# Call simpson13() method and get result
+result = simpson13(lower_limit, upper_limit, sub_interval)
+<br>
+print("Integration result by Simpson's 1/3 method is: %.6f" % result)
+</p>
+    <h3>
+        exp 9
+    </h3>
+    <p>
+        # Gauss Seidel Iteration
+        <br>
+
+# Defining equations to be solved
+# in diagonally dominant form
+<br>
+f1 = lambda x,y,z: (17-y+2*z)/20
+<br>
+f2 = lambda x,y,z: (-18-3*x+z)/20
+<br>
+f3 = lambda x,y,z: (25-2*x+3*y)/20
+
+# Initial setup
+<br>
+x0 = 0
+<br>
+y0 = 0
+<br>
+z0 = 0
+<br>
+count = 1
+<br>
+
+# Reading tolerable error
+e = float(input('Enter tolerable error: '))
+<br>
+
+# Implementation of Gauss Seidel Iteration
+print('\nCount\tx\ty\tz\n')
+<br>
+
+condition = True
+<br>
+
+while condition:
+<br>
+x1 = f1(x0,y0,z0)
+<br>
+y1 = f2(x1,y0,z0)
+<br>
+z1 = f3(x1,y1,z0)
+<br>
+print('%d\t%0.4f\t%0.4f\t%0.4f\n' %(count, x1,y1,z1))
+<br>
+e1 = abs(x0-x1);
+<br>
+e2 = abs(y0-y1);
+<br>
+e3 = abs(z0-z1);
+<br>
+    
+count += 1
+<br>
+x0 = x1
+<br>
+y0 = y1
+<br>
+z0 = z1
+<br>
+    
+    condition = e1>e and e2>e and e3>e
+    <br>
+
+print('\nSolution: x=%0.3f, y=%0.3f and z = %0.3f\n'% (x1,y1,z1))
+<br>
+
+    </p>
+    <h3>
+        exp 10
+    </h3>
+    <p>
+        # Power Method to Find Largest Eigen Value and Eigen Vector
+# Importing NumPy Library
+import numpy as np
+<br>
+import sys
+<br>
+
+# Reading order of matrix
+n = int(input('Enter order of matrix: '))
+<br>
+
+# Making numpy array of n x n size and initializing 
+# to zero for storing matrix
+a = np.zeros((n,n))
+<br>
+
+# Reading matrix
+print('Enter Matrix Coefficients:')
+<br>
+for i in range(n):
+<br>
+for j in range(n):
+<br>
+a[i][j] = float(input( 'a['+str(i)+']['+ str(j)+']='))
+<br>
+
+# Making numpy array n x 1 size and initializing to zero
+# for storing initial guess vector
+x = np.zeros((n))
+<br>
+
+# Reading initial guess vector
+print('Enter initial guess vector: ')
+<br>
+for i in range(n):
+<br>
+x[i] = float(input( 'x['+str(i)+']='))
+<br>
+
+# Reading tolerable error
+tolerable_error = float(input('Enter tolerable error: '))
+<br>
+
+# Reading maximum number of steps
+max_iteration = int(input('Enter maximum number of steps: '))
+<br>
+
+# Power Method Implementation
+lambda_old = 1.0
+<br>
+condition =  True
+<br>
+step = 1
+<br>
+while condition:
+<br>
+# Multiplying a and x
+<br>
+x = np.matmul(a,x)
+    
+<br>
+# Finding new Eigen value and Eigen vector
+    lambda_new = max(abs(x))
+    <br>
+    
+    x = x/lambda_new
+    <br>
+    
+    # Displaying Eigen value and Eigen Vector
+    print('\nSTEP %d' %(step))
+    <br>
+    print('----------')
+    <br>
+    print('Eigen Value = %0.4f' %(lambda_new))
+    <br>
+    print('Eigen Vector: ')
+    <br>
+    for i in range(n):
+    <br>
+        print('%0.3f\t' % (x[i]))
+        <br>
+    
+    # Checking maximum iteration
+    <br>
+    step = step + 1
+    <br>
+    if step > max_iteration:
+    <br>
+        print('Not convergent in given maximum iteration!')
+        <br>
+        break
+    
+        <br>
+        # Calculating error
+    error = abs(lambda_new - lambda_old)
+    <br>
+    print('errror='+ str(error))
+    <br>
+    lambda_old = lambda_new
+    <br>
+    condition = error > tolerable_error
+    <br>
+
+    </p>
+</body>
+</html>
+
+
